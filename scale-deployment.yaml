@@ -1,0 +1,20 @@
+---
+- name: Escalar pods no Kubernetes
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Obter informações sobre o pod
+    k8s_info:
+      kind: Pod
+      name: my-pod
+      namespace: my-namespace
+    register: pod_info
+
+  - name: Escalar o pod
+    k8s_scale:
+      kind: Pod
+      name: my-pod
+      namespace: my-namespace
+      replicas: 3
+    when: pod_info.exists | bool and pod_info.spec.replicas != 3
