@@ -1,5 +1,5 @@
-- name: collect all config files from all datagrid containers
+- name: Scale Pods to 0
   hosts: ocp_bastion
   tasks:
   - name: 
-    shell: sh /home/lab-user/get_pods.sh
+    shell: sh /home/lab-user/scale_pods_to_0.sh
