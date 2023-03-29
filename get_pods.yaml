@@ -1,6 +1,5 @@
 - name: collect all config files from all datagrid containers
   hosts: ocp_bastion
-  connection: local
   tasks:
   - name: 
     shell: sh /home/lab-user/get_pods.sh
