@@ -1,0 +1,5 @@
+- name: Scale Pods to 0
+  hosts: ocp_bastion
+  tasks:
+  - name: 
+    shell: sh /home/lab-user/scale_pods_to_0.sh
